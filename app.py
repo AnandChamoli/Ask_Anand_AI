@@ -18,17 +18,17 @@ with st.sidebar:
     st.image("profile.jpeg", width=230)
 
     st.markdown("""
-🎓 **B.S. Data Science** Business Analytics  
-Arizona State University
+🎓 **B.S. Data Science** (Business Analytics)  
+     Arizona State University
 
 🎓 **Diploma in Automobile Engineering**  
-CSMT, B.S.F
+     CSMT, B.S.F
 
 💻 **Analytics Skills**  
-Python | SQL | Power BI | Tableau | Machine Learning
+     Python | SQL | Power BI | Tableau | Machine Learning
 
 🚜 **Business Expertise**  
-Sales | Marketing | After-Sales | Spare Parts | Customer Experience | Business Transformation
+     Sales | Marketing | After-Sales | Spare Parts | Customer Experience | Business Transformation
 """)
 
     st.markdown("---")
