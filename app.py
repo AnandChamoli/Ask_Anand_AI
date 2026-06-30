@@ -8,44 +8,49 @@ st.set_page_config(
     layout="wide"
 )
 
+# -----------------------------
+# Sidebar Profile Section
+# -----------------------------
+with st.sidebar:
+    st.title("Ask Anand AI")
+    st.markdown("### Anand Chamoli")
 
-col1, col2 = st.columns([1, 4])
-
-with col1:
-    st.image("profile.jpeg", width=220)
-
-with col2:
-    st.title("Ask Anand AI - AI-Powered Career & Portfolio Assistant")
+    st.image("profile.jpeg", width=230)
 
     st.markdown("""
-**Anand Chamoli**
+🎓 **B.S. Data Science**  
+Business Analytics  
+Arizona State University
 
-Business Analytics Professional with 14 years of experience across Sales, Marketing, Customer Service, After-Sales Operations, Spare Parts, and Business Transformation.
+🎓 **Diploma in Automobile Engineering**  
+CSMT, B.S.F
 
-🎓 B.S. Data Science (Business Analytics) – Arizona State University
-🎓 Diploma in Automobile Engineering (CSMT, B.S.F)
+💻 **Analytics Skills**  
+Python | SQL | Power BI | Tableau | Machine Learning
 
-💻 Python | SQL | Power BI | Tableau | Machine Learning
+🚜 **Business Expertise**  
+Sales | Marketing | After-Sales | Spare Parts | Customer Experience | Business Transformation
+""")
 
-🚜 Sales | Marketing | After-Sales | Spare Parts | Customer Experience | Business Transformation""")
+    st.markdown("---")
 
-st.markdown(
-    "[🔗 LinkedIn](https://www.linkedin.com/in/anand-chamoli-3702bb8b) | "
-    "[💻 GitHub](https://github.com/AnandChamoli)"
-)
+    st.markdown("[🔗 LinkedIn](https://www.linkedin.com/in/anand-chamoli-3702bb8b)")
+    st.markdown("[💻 GitHub](https://github.com/AnandChamoli)")
 
-st.markdown(
-    "Explore Anand's professional experience, analytics projects, leadership accomplishments, and suitability for various business and analytics roles."
-)
+
+# -----------------------------
+# Main Page
+# -----------------------------
+st.title("AI-Powered Career & Portfolio Assistant")
+
+st.markdown("""
+Explore Anand's professional experience, analytics projects, leadership accomplishments, 
+and suitability for business, analytics, and transformation roles.
+""")
 
 # -----------------------------
 # Ask Anand Q&A Section
 # -----------------------------
-
-# -----------------------------
-# Ask Anand Q&A Section
-# -----------------------------
-
 sample_questions = [
     "Why should we hire Anand?",
     "Tell me about Anand's tractor industry experience?",
@@ -65,68 +70,73 @@ if "last_question" not in st.session_state:
 if "last_answer" not in st.session_state:
     st.session_state.last_answer = ""
 
+with st.container(border=True):
+    st.subheader("Ask Anand")
 
-with st.form("ask_anand_form"):
-    question = st.text_input(
-        "Ask a question:",
-        placeholder="Example: Why should we hire Anand?"
-    )
+    with st.form("ask_anand_form"):
+        question = st.text_input(
+            "Ask a question:",
+            placeholder="Example: Why should we hire Anand?"
+        )
 
-    selected_question = st.selectbox(
-        "Or choose a sample question:",
-        [""] + sample_questions
-    )
+        selected_question = st.selectbox(
+            "Or choose a sample question:",
+            [""] + sample_questions
+        )
 
-    submitted = st.form_submit_button("Ask Anand")
+        submitted = st.form_submit_button("Ask Anand")
 
-if submitted:
-    final_question = question.strip() if question.strip() else selected_question.strip()
+    if submitted:
+        final_question = question.strip() if question.strip() else selected_question.strip()
 
-    if final_question:
-        with st.spinner("Searching Anand's knowledge base..."):
-            answer = answer_question(final_question)
+        if final_question:
+            with st.spinner("Searching Anand's knowledge base..."):
+                answer = answer_question(final_question)
 
-        st.session_state.last_question = final_question
-        st.session_state.last_answer = answer
-    else:
-        st.warning("Please enter or select a question.")
+            st.session_state.last_question = final_question
+            st.session_state.last_answer = answer
+        else:
+            st.warning("Please enter or select a question.")
 
 if st.session_state.last_answer:
     st.markdown("### Question")
-    st.write(st.session_state.last_question)
+    st.info(st.session_state.last_question)
 
     st.markdown("### Answer")
-    st.write(st.session_state.last_answer)
+    st.success(st.session_state.last_answer)
+
+
 # -----------------------------
 # Job Description Match Section
 # -----------------------------
-
 st.markdown("---")
 
-st.subheader("Job Fit Analysis")
+with st.container(border=True):
+    st.subheader("Job Fit Analysis")
 
-job_description = st.text_area(
-    "Paste a Job Description",
-    height=200
-)
+    job_description = st.text_area(
+        "Paste a Job Description",
+        height=200,
+        placeholder="Paste the job description here..."
+    )
 
-if st.button("Analyze Match"):
-    if job_description.strip():
-        score, matched_skills, missing_skills = analyze_job_description(job_description)
+    if st.button("Analyze Match"):
+        if job_description.strip():
+            score, matched_skills, missing_skills = analyze_job_description(job_description)
 
-        st.metric("Match Score", f"{score}%")
+            st.metric("Match Score", f"{score}%")
 
-        st.markdown("### Matched Skills")
-        for skill in matched_skills:
-            st.write(f"✅ {skill}")
+            st.markdown("### Matched Skills")
+            for skill in matched_skills:
+                st.write(f"✅ {skill}")
 
-        st.markdown("### Possible Gaps")
-        for skill in missing_skills[:10]:
-            st.write(f"⚠️ {skill}")
-    else:
-        st.warning("Please paste a job description first.")
+            st.markdown("### Possible Gaps")
+            for skill in missing_skills[:10]:
+                st.write(f"⚠️ {skill}")
+        else:
+            st.warning("Please paste a job description first.")
 
 st.markdown("---")
 st.caption(
-    "Built by Anand Chamoli using | Python, Streamlit, ChromaDB, SentenceTransformers, Retrieval-Augmented Generation (RAG)"
+    "Built by Anand Chamoli using Python, Streamlit, ChromaDB, SentenceTransformers, and Retrieval-Augmented Generation (RAG)"
 )
