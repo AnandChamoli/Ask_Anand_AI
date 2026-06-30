@@ -95,6 +95,20 @@ The assistant retrieves information from:
 
 ---
 
+## Screenshots
+
+### Home Page
+
+<img width="1426" height="754" alt="homepage" src="https://github.com/user-attachments/assets/118d2648-91b1-4d51-abbe-606b073e4f9c" />
+
+### Recruiter Q&A
+
+<img width="895" height="644" alt="recruiter_question" src="https://github.com/user-attachments/assets/30c4fb68-03e4-4514-9345-0956c2f75a26" />
+
+### Job Fit Analysis
+
+<img width="1414" height="788" alt="job_fit_analysis" src="https://github.com/user-attachments/assets/c9e0f6c3-8a44-4878-9eae-d0e52f9d6055" />
+
 ## 🏗️ Architecture
 
 ```text
