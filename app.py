@@ -18,8 +18,7 @@ with st.sidebar:
     st.image("profile.jpeg", width=230)
 
     st.markdown("""
-🎓 **B.S. Data Science**  
-Business Analytics  
+🎓 **B.S. Data Science** Business Analytics  
 Arizona State University
 
 🎓 **Diploma in Automobile Engineering**  
