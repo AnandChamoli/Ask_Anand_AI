@@ -15,8 +15,7 @@ with col1:
     st.image("profile.jpeg", width=220)
 
 with col2:
-    st.title("Ask Anand AI")
-    st.subheader("AI-Powered Career & Portfolio Assistant")
+    st.title("Ask Anand AI - AI-Powered Career & Portfolio Assistant")
 
     st.markdown("""
 **Anand Chamoli**
@@ -38,7 +37,17 @@ st.markdown(
 st.markdown(
     "Explore Anand's professional experience, analytics projects, leadership accomplishments, and suitability for various business and analytics roles."
 )
+st.markdown("### Core Expertise")
 
+st.markdown("""
+**Analytics & AI:** Python | SQL | Power BI | Tableau | Machine Learning | RAG | ChromaDB | Streamlit
+
+**Business Domains:** Sales | Marketing | After-Sales | Spare Parts | Customer Experience | Business Transformation
+
+**Industry Experience:** Tractor Industry | Automotive | Dealer Development | Service Operations | Parts Business
+
+**Target Roles:** Business Analyst | Data Analyst | BI Analyst | Analytics Consultant | Business Transformation
+""")
 # -----------------------------
 # Ask Anand Q&A Section
 # -----------------------------
