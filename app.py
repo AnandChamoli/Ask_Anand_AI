@@ -37,17 +37,7 @@ st.markdown(
 st.markdown(
     "Explore Anand's professional experience, analytics projects, leadership accomplishments, and suitability for various business and analytics roles."
 )
-st.markdown("### Core Expertise")
 
-st.markdown("""
-**Analytics & AI:** Python | SQL | Power BI | Tableau | Machine Learning | RAG | ChromaDB | Streamlit
-
-**Business Domains:** Sales | Marketing | After-Sales | Spare Parts | Customer Experience | Business Transformation
-
-**Industry Experience:** Tractor Industry | Automotive | Dealer Development | Service Operations | Parts Business
-
-**Target Roles:** Business Analyst | Data Analyst | BI Analyst | Analytics Consultant | Business Transformation
-""")
 # -----------------------------
 # Ask Anand Q&A Section
 # -----------------------------
@@ -74,29 +64,7 @@ if "last_question" not in st.session_state:
 
 if "last_answer" not in st.session_state:
     st.session_state.last_answer = ""
-st.markdown("### Quick Recruiter Questions")
 
-col1, col2 = st.columns(2)
-
-with col1:
-    if st.button("Why should we hire Anand?"):
-        st.session_state.last_question = "Why should we hire Anand?"
-        st.session_state.last_answer = answer_question(st.session_state.last_question)
-
-    if st.button("Tell me about CARE Direct 24x7"):
-        st.session_state.last_question = "Tell me about CARE Direct 24x7."
-        st.session_state.last_answer = answer_question(st.session_state.last_question)
-
-with col2:
-    if st.button("What analytics projects has Anand completed?"):
-        st.session_state.last_question = "What analytics projects has Anand completed?"
-        st.session_state.last_answer = answer_question(st.session_state.last_question)
-
-    if st.button("What makes Anand different from a fresh data analyst?"):
-        st.session_state.last_question = "What makes Anand different from a fresh data analyst?"
-        st.session_state.last_answer = answer_question(st.session_state.last_question)
-
-st.markdown("---")
 
 with st.form("ask_anand_form"):
     question = st.text_input(
